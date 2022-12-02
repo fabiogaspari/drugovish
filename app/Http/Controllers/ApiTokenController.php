@@ -29,10 +29,9 @@ class ApiTokenController extends Controller
         }
 
         if ( !Hash::check($request->password, $manager->password) ) {
-            return [
-                'status' => 'error',
-                'message' => 'Unauthorized.'
-            ];
+            abort(response()->json([
+                'message' => 'Unauthenticated',
+            ], 401));
         }
 
         $manager->api_token = hash('sha256', $token);
