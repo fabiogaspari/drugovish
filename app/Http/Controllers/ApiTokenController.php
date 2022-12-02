@@ -63,7 +63,7 @@ class ApiTokenController extends Controller
 
         $auth = Manager::where('api_token', $token)->first();
         
-        if ( $auth ) {
+        if ( !$auth ) {
             return [
                 'status' => 'error',
                 'message' => 'User not found.'
