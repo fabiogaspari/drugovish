@@ -7,7 +7,6 @@ use App\Models\Manager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Validation\ValidationException;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +21,7 @@ use Illuminate\Validation\ValidationException;
 
 Route::group([
     'prefix' => '/groups',
-    'as' => 'groups'
+    'as' => 'groups.'
 ], function() {
     Route::get('index', [GroupController::class, 'index'])->name('index');
     Route::post('store', [GroupController::class, 'store'])->name('store');
@@ -39,7 +38,7 @@ Route::group([
 
 Route::group([
     'prefix' => '/clients',
-    'as' => 'clients'
+    'as' => 'clients.'
 ], function() {
     Route::get('index', [ClientController::class, 'index'])->name('index');
     Route::post('store', [ClientController::class, 'store'])->name('store');

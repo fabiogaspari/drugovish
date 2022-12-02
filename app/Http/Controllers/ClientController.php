@@ -14,7 +14,7 @@ class ClientController extends Controller
     /**
      * The service variable.
      *
-     * @var GroupService
+     * @var ClientService
      */
     private ClientService $service;
 
@@ -84,15 +84,4 @@ class ClientController extends Controller
         return response()->json($this->service->destroy($clientId));
     }
 
-    /**
-     * Get clients by group.
-     *
-     * @param  string  $code
-     * @return \Illuminate\Http\Response
-     */
-    public function byGroup(Request $request, string $code)
-    {
-        apiAuth($request, [Level::LEVEL2]);
-        return response()->json($this->service->byGroup($code));
-    }
 }
