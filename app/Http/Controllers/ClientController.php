@@ -6,6 +6,7 @@ use App\Enums\Level;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use App\Services\ClientService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -27,19 +28,19 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function index(Request $request)
+    public function index(Request $request): JsonResponse
     {
         apiAuth($request, [Level::LEVEL2]);
-        return $this->service->index();
+        return response()->json($this->service->index());
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreClientRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(StoreClientRequest $request)
     {
@@ -51,7 +52,7 @@ class ClientController extends Controller
      * Display the specified resource.
      *
      * @param  int  $clientId
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Request $request, int $clientId)
     {
@@ -64,7 +65,7 @@ class ClientController extends Controller
      *
      * @param  \App\Http\Requests\UpdateClientRequest  $request
      * @param  int  $clientId
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(UpdateClientRequest $request, int $clientId)
     {
@@ -76,7 +77,7 @@ class ClientController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $clientId
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Request $request, int $clientId)
     {

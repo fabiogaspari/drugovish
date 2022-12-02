@@ -92,7 +92,7 @@ class GroupController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Request $request
-     * @param  int  $group
+     * @param  string $group
      * @return \Illuminate\Http\JsonResponse
      */
     public function clientsByGroup(Request $request, string $code)
