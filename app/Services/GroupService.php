@@ -32,7 +32,7 @@ class GroupService extends AbstractService
 
         return [
             'status' => 'error',
-            'message' => 'Entity not found.'
+            'message' => 'Entities not found.'
         ];
 
     }
