@@ -53,8 +53,24 @@ class ApiTokenController extends Controller
     public function logout(Request $request)
     {
         $token = $request->header('X-API-Key');
+        
+        if ( $token == '' || $token == null ) {
+            return [
+                'status' => 'error',
+                'message' => 'ApiToken not found.'
+            ];
+        } 
+
         $auth = Manager::where('api_token', $token)->first();
-        $auth->api_key = null;
+        
+        if ( $auth ) {
+            return [
+                'status' => 'error',
+                'message' => 'User not found.'
+            ];
+        }
+        
+        $auth->api_token = null;
         $auth->save();
 
         return [
