@@ -25,12 +25,7 @@ Route::group([
     Route::get('show/{groupId}', [GroupController::class, 'show'])->name('show');
     Route::put('update/{groupId}', [GroupController::class, 'update'])->name('update');
     Route::delete('destroy/{groupId}', [GroupController::class, 'destroy'])->name('destroy');
-    Route::group([
-        'prefix' => '/clients',
-        'as' => 'clients'
-    ], function() {
-        Route::get('by-group/{code}', [GroupController::class, 'clientsByGroup'])->name('clientsByGroup');
-    });
+    Route::get('/{code}/clients', [GroupController::class, 'clientsByGroup'])->name('clientsByGroup');
 });
 
 Route::group([
