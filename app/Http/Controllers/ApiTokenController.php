@@ -43,4 +43,25 @@ class ApiTokenController extends Controller
             'token' => $manager->api_token
         ];
     }
+
+    /**
+     * Update the authenticated user's API token.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function logout(Request $request)
+    {
+        $token = $request->header('X-API-Key');
+        $auth = Manager::where('api_token', $token)->first();
+        $auth->api_key = null;
+        $auth->save();
+
+        return [
+            'status' => 'success',
+            'message' => 'Disconnected.'
+        ];
+    }
+
+    
 }

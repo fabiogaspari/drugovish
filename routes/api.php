@@ -45,3 +45,4 @@ Route::group([
 });
 
 Route::post('/login', [ApiTokenController::class, 'update'])->name('login');
+Route::post('/logout', [ApiTokenController::class, 'logout'])->name('logout');
