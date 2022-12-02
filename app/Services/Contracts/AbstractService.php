@@ -36,7 +36,7 @@ abstract class AbstractService
         
         return [
             'status' => 'success',
-            'message' => 'Success to get entities.',
+            'message' => 'Success to getting entities.',
             'paginated_entities' => $index,
         ];
     }

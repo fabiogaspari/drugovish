@@ -25,7 +25,7 @@ class GroupService extends AbstractService
             $clients = $model->clients;
             return [
                 'status' => 'success',
-                'message' => 'Success in get the entities.',
+                'message' => 'Success in getting the entities.',
                 'data' => $clients
             ];
         }
