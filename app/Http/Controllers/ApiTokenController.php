@@ -54,10 +54,9 @@ class ApiTokenController extends Controller
         $token = $request->header('X-API-Key');
         
         if ( $token == '' || $token == null ) {
-            return [
-                'status' => 'error',
-                'message' => 'ApiToken not found.'
-            ];
+            abort(response()->json([
+                'message' => 'Unauthenticated',
+            ], 401));
         } 
 
         $auth = Manager::where('api_token', $token)->first();
