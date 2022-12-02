@@ -3,9 +3,6 @@
 use App\Http\Controllers\ApiTokenController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\GroupController;
-use App\Models\Manager;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
