@@ -35,6 +35,7 @@ class ApiTokenController extends Controller
         }
 
         $manager->api_token = hash('sha256', $token);
+        $manager->api_token_modified = now();
         $manager->save();
  
         return [
@@ -69,6 +70,7 @@ class ApiTokenController extends Controller
         }
         
         $auth->api_token = null;
+        $auth->api_token_modified = null;
         $auth->save();
 
         return [
